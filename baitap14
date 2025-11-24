@@ -1,0 +1,15 @@
+def tien_dien(kwh):
+    gia = [1984, 2050, 2380, 2998, 3350, 3460]
+    muc = [50, 50, 100, 100, 100, float('inf')]
+    tong_tien = 0
+    for i in range(len(muc)):
+        if kwh > 0:
+            su_dung = min(kwh, muc[i])
+            tong_tien += su_dung * gia[i]
+            kwh -= su_dung
+        else:
+            break
+    return tong_tien
+kwh = float(int(input("Nhập số kWh điện đã sử dụng trong tháng: ")))
+tong_tien = tien_dien(kwh)
+print("Tổng số tiền điện phải trả là:", int(tong_tien), "VNĐ")
