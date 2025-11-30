@@ -2,11 +2,8 @@ def tinh_dtb_mon(ds_diem_tx, diem_gk, diem_ck):
 
     tong_tx = sum(ds_diem_tx)
     so_luong_tx = len(ds_diem_tx)
-
-    # Công thức: (Tổng TX + GK*2 + CK*3) / (Số lượng TX + 2 + 3)
     dtb = (tong_tx + diem_gk * 2 + diem_ck * 3) / (so_luong_tx + 5)
     return round(dtb, 1)  # Làm tròn 1 chữ số thập phân
-
 
 def xep_loai_hoc_sinh(bang_diem):
     mon_tinh_diem = bang_diem['mon_tinh_diem']
@@ -16,44 +13,32 @@ def xep_loai_hoc_sinh(bang_diem):
     min_diem = min(mon_tinh_diem) if mon_tinh_diem else 0
     so_mon_tren_8 = len([d for d in mon_tinh_diem if d >= 8.0])
     so_mon_tren_6_5 = len([d for d in mon_tinh_diem if d >= 6.5])
-
     tat_ca_nhan_xet_dat = all(nx == 'Đ' for nx in mon_nhan_xet)
     so_mon_nhan_xet_cd = mon_nhan_xet.count('CĐ')
     so_mon_duoi_5 = len([d for d in mon_tinh_diem if d < 5.0])
 
     # 1. Xếp loại TỐT
-    # - Tất cả môn nhận xét: Đạt
-    # - Tất cả môn tính điểm >= 6.5
-    # - Ít nhất 6 môn >= 8.0
     if tat_ca_nhan_xet_dat and min_diem >= 6.5 and so_mon_tren_8 >= 6:
         return "TỐT"
 
     # 2. Xếp loại KHÁ (nếu không đạt Tốt)
-    # - Tất cả môn nhận xét: Đạt
-    # - Tất cả môn tính điểm >= 5.0
-    # - Ít nhất 6 môn >= 6.5
     elif tat_ca_nhan_xet_dat and min_diem >= 5.0 and so_mon_tren_6_5 >= 6:
         return "KHÁ"
 
     # 3. Xếp loại ĐẠT (nếu không đạt Khá)
-    # - Tối đa 1 môn nhận xét là Chưa Đạt
-    # - Tối đa 1 môn tính điểm < 5.0
     elif so_mon_nhan_xet_cd <= 1 and so_mon_duoi_5 <= 1:
         return "ĐẠT"
 
     # 4. Còn lại
     else:
         return "CHƯA ĐẠT"
-
-
 # --- CHƯƠNG TRÌNH CHÍNH ---
 def main():
     print("--- CHƯƠNG TRÌNH TÍNH ĐIỂM VÀ XẾP LOẠI (THÔNG TƯ 22) ---")
 
-    # Danh sách môn học mẫu (Bạn có thể thêm bớt)
+    # Danh sách môn học mẫu 
     ds_mon_tinh_diem = ["Toán", "Văn", "Ngoại Ngữ", "KHTN", "Lịch sử & ĐL", "Tin học", "Công nghệ", "GDCD"]
     ds_mon_nhan_xet = ["Thể dục", "Nghệ thuật", "HĐTN-HN", "Nội dung ĐP"]
-
     ket_qua_tinh_diem = []
     ket_qua_nhan_xet = []
 
