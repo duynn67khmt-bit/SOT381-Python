@@ -36,7 +36,7 @@ def xep_loai_hoc_sinh(bang_diem):
 def main():
     print("--- CHƯƠNG TRÌNH TÍNH ĐIỂM VÀ XẾP LOẠI (THÔNG TƯ 22) ---")
 
-    # Danh sách môn học mẫu 
+    # Danh sách môn học mẫu
     ds_mon_tinh_diem = ["Toán", "Văn", "Ngoại Ngữ", "KHTN", "Lịch sử & ĐL", "Tin học", "Công nghệ", "GDCD"]
     ds_mon_nhan_xet = ["Thể dục", "Nghệ thuật", "HĐTN-HN", "Nội dung ĐP"]
     ket_qua_tinh_diem = []
