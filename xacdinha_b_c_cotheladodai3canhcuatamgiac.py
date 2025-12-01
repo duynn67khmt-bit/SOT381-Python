@@ -6,4 +6,4 @@ c = int(input("Nhập số c:"))
 if a + b > c and a + c > b and b + c > a:
     print("3 số đã nhập đủ điều kiện thành lập 1 tam giác")
 else:
-    print('3 số đã nhập không đủ điều kiện thành lập 1 tam giác abc')
+    print('3 số đã nhập không đủ điều kiện thành lập 1 tam giác abc')   
