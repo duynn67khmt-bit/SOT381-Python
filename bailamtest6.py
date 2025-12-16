@@ -1,8 +1,6 @@
-from sqlalchemy.sql.base import elements
-
 a = input("Nhập vào mật khẩu: ")
 while True:
-    if a == "y" or a == "Y" or "con mẹ lý tày từ cha":
+    if a == "y" or a == "Y":
         print("Login success")
         break
     else:
