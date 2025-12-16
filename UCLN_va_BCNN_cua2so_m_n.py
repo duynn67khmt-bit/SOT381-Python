@@ -1,11 +1,9 @@
 def tim_ucln(a, b):
     while b != 0:
-        a, b = b, a % b  # Hoán đổi: a thành b, b thành phần dư
+        a, b = b, a % b 
     return a
 
 def tim_bcnn(a, b):
-    # Công thức: (a * b) chia cho UCLN
-    # Dùng phép chia lấy nguyên (//)
     return (a * b) // tim_ucln(a, b)
 try:
     m = int(input("Nhập số m: "))
