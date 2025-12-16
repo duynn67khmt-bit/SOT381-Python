@@ -1,0 +1,1 @@
+w = int(input("Nhập vào cân nặng của bạn (kg): "))h = int(input("Nhập vào chiều cao của bạn (cm): "))bmi = w / ((h/100) ** 2)print("Chỉ số BMI của bạn là:", round(bmi, 2))if bmi < 18.5:    print("bạn bị thiếu dinh dưỡng, thiếu cân")elif 18.5 <= bmi < 24.9:    print("bạn có cân nặng bình thường, khỏe mạnh")else:    print("bạn bị thừa cân, béo phì")
